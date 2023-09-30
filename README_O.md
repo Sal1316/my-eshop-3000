@@ -17,11 +17,11 @@ SO THAT my company can compete with other e-commerce companies
 ## Acceptance Criteria
 
 ```md
-GIVEN a functional Express.js API
+✅ GIVEN a functional Express.js API
 WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
 THEN I am able to connect to a database using Sequelize
 
-WHEN I enter schema and seed commands
+WHEN I enter schema and seed commands in mysql -u root -p
 THEN a development database is created and is seeded with test data
 
 WHEN I enter the command to invoke the application
@@ -62,113 +62,80 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 
 Your database should contain the following four models, including the requirements listed for each model:
 
-* `Category`
+*✅ `Category`
 
   * `id`
-
     * Integer.
-  
     * Doesn't allow null values.
-  
     * Set as primary key.
-  
     * Uses auto increment.
 
   * `category_name`
-  
     * String.
-  
     * Doesn't allow null values.
 
-* `Product`
+*✅ `Product`
 
   * `id`
-  
     * Integer.
-  
     * Doesn't allow null values.
-  
     * Set as primary key.
-  
     * Uses auto increment.
 
   * `product_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
+      * String.
+      * Doesn't allow null values.
 
   * `price`
-  
-    * Decimal.
-  
-    * Doesn't allow null values.
-  
-    * Validates that the value is a decimal.
+      * Decimal.
+      * Doesn't allow null values.
+      * Validates that the value is a decimal.
 
   * `stock`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set a default value of `10`.
-  
-    * Validates that the value is numeric.
+      * Integer.
+      * Doesn't allow null values.
+      * Set a default value of `10`.
+      * Validates that the value is numeric.
 
   * `category_id`
-  
-    * Integer.
-  
-    * References the `Category` model's `id`.
+      * Integer.
+      * References the `Category` model's `id`.
 
-* `Tag`
+*✅ `Tag`
 
   * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
+      * Integer.
+      * Doesn't allow null values.
+      * Set as primary key.
+      * Uses auto increment.
   * `tag_name`
-  
-    * String.
+      * String.
 
-* `ProductTag`
+*✅ `ProductTag`
 
   * `id`
-
     * Integer.
-
     * Doesn't allow null values.
-
     * Set as primary key.
-
     * Uses auto increment.
 
   * `product_id`
-
     * Integer.
-
     * References the `Product` model's `id`.
 
   * `tag_id`
-
     * Integer.
-
     * References the `Tag` model's `id`.
 
 ### Associations
 
 You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-* `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
+*✅ `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
 
-* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
+*✅ `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. 
+
+Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.`Dont know what this is asking?`
 
 > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
 

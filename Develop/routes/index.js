@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const apiRoutes = require('./api');
+const apiRoutes = require('./api'); // should'nt this be more filtered? seem like it should be ./api/index
 
 router.use('/api', apiRoutes);
 
