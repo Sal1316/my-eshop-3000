@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require("./routes");
+const routes = require("./routes"); // when you require it from a folder, it expects it from an index file.
 
 // import sequelize connection
 const sequelize = require("./config/connection");

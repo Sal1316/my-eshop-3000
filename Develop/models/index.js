@@ -1,40 +1,29 @@
 // import models
-const Product = require('./Product');
-const Category = require('./Category');
-const Tag = require('./Tag');
+const Product = require("./Product");
+const Category = require("./Category");
+const Tag = require("./Tag");
 
-const ProductTag = require('./ProductTag');
-
+const ProductTag = require("./ProductTag");
 
 Product.belongsTo(Category, {
-  foreignKey: 'id',
+  foreignKey: "category_id",
+  onDelete: "CASCADE",
 });
 Category.hasMany(Product, {
-  foreignKey: 'id',
+  foreignKey: "category_id",
 });
 Product.belongsToMany(Tag, {
-  foreignKey: 'id',
+  through: ProductTag, // through means that ProductTag has the connection that connects the other tables to each other.
+  foreignKey: "product_id",
 });
 Tag.belongsToMany(Product, {
-  foreignKey: 'id',
+  foreignKey: "tag_id",
+  through: ProductTag,
 });
-
-
-// Products belongToMany Tags (through ProductTag)
-
-// Tags belongToMany Products (through ProductTag)
 
 module.exports = {
   Product,
   Category,
   Tag,
-  ProductTag,
+  // ProductTag, dont need to exprot it bc we are using it for the through realtionships.
 };
-
-
-/* TODO: 
-
-Not sure what they want when they say through ProductTag?
-
-
-*/ 
